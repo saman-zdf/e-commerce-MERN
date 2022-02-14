@@ -5,6 +5,7 @@ import {
   Slider,
   Categories,
   Products,
+  NewsLetter,
 } from '../components';
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Slider />
       <Categories />
       <Products />
+      <NewsLetter />
     </div>
   );
 };
