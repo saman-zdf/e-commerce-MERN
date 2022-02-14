@@ -6,6 +6,7 @@ import CategoryItem from './CategoryItem';
 import Products from './Products';
 import Product from './Product';
 import NewsLetter from './NewsLetter';
+import Footer from './Footer';
 export {
   Navbar,
   Announcement,
@@ -15,4 +16,5 @@ export {
   Products,
   Product,
   NewsLetter,
+  Footer
 };

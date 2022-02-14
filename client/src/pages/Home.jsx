@@ -6,6 +6,7 @@ import {
   Categories,
   Products,
   NewsLetter,
+  Footer,
 } from '../components';
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Categories />
       <Products />
       <NewsLetter />
+      <Footer />
     </div>
   );
 };
