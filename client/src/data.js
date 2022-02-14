@@ -67,7 +67,7 @@ export const popularProducts = [
   },
   {
     id: 7,
-    img: 'https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png',
+    img: 'https://5.imimg.com/data5/RG/GV/MY-944516/men-27s-casual-jacket-500x500.jpg',
   },
   {
     id: 8,

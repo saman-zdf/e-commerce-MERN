@@ -1,5 +1,11 @@
 import React from 'react';
-import { Navbar, Announcement, Slider, Categories } from '../components';
+import {
+  Navbar,
+  Announcement,
+  Slider,
+  Categories,
+  Products,
+} from '../components';
 const Home = () => {
   return (
     <div>
@@ -7,6 +13,7 @@ const Home = () => {
       <Navbar />
       <Slider />
       <Categories />
+      <Products />
     </div>
   );
 };
