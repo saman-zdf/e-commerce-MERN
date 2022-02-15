@@ -1,10 +1,17 @@
 import React from 'react';
-import { Home, ProductsList, SingleProduct, Register, Login } from './pages';
+import {
+  Home,
+  ProductsList,
+  SingleProduct,
+  Register,
+  Login,
+  Cart,
+} from './pages';
 
 const App = () => {
   return (
     <div>
-      <Login />
+      <Cart />
     </div>
   );
 };
