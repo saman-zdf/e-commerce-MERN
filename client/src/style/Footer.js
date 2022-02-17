@@ -1,7 +1,11 @@
 import styled from 'styled-components';
-
+import { mobile } from './Responsive';
 export const Container = styled.div`
   display: flex;
+  ${mobile({
+    flexDirection: 'column',
+    alignItems: 'center',
+  })}
 `;
 
 export const Left = styled.div`
@@ -37,6 +41,9 @@ export const SocialIcon = styled.div`
 export const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({
+    display: 'none',
+  })}
 `;
 export const Title = styled.h3`
   margin-bottom: 30px;
@@ -58,6 +65,9 @@ export const ListItem = styled.li`
 export const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({
+    backgroundColor: '#e9e9e9',
+  })}
 `;
 
 export const ContactItem = styled.div`

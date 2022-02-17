@@ -10,6 +10,7 @@ import {
   Logo,
   MenuItem,
 } from '../style/Navbar';
+
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
