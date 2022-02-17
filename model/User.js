@@ -8,7 +8,7 @@ const UserSchema = new Schema(
   {
     username: {
       type: String,
-      required: [true, 'Please provide a name.'],
+      required: [true, 'Please provide a username.'],
       unique: true,
     },
     email: {
@@ -19,7 +19,6 @@ const UserSchema = new Schema(
       type: String,
       required: [true, 'Please provide a password.'],
       minlength: 6,
-      select: false,
     },
     isAdmin: {
       type: Boolean,
