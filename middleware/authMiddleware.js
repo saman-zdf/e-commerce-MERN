@@ -8,7 +8,6 @@ const verifyToken = async (req, res, next) => {
   if (authHeaders) {
     const token = authHeaders.split(' ')[1];
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-      console.log(user);
       if (err)
         res.status(StatusCodes.FORBIDDEN).json({ msg: 'Token is invalid' });
       req.user = user;

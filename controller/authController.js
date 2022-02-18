@@ -41,7 +41,6 @@ const login = async (req, res) => {
     process.env.CRYPTO_SECRET
   );
   const pass = hashedPassword.toString(CryptoJS.enc.Utf8);
-  console.log(pass);
   if (pass !== req.body.password) {
     throw new BadRequestError('Wrong Password!!!');
   }
