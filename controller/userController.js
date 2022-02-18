@@ -22,4 +22,11 @@ const updateUser = async (req, res) => {
   res.status(StatusCodes.OK).json({ user });
 };
 
-export { updateUser };
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  await User.findByIdAndDelete(id);
+  res
+    .status(StatusCodes.OK)
+    .json({ msg: 'User has been deleted successfully!!' });
+};
+export { updateUser, deleteUser };
