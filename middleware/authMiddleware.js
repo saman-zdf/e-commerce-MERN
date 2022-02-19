@@ -32,4 +32,16 @@ const verifyTokenAuthorization = (req, res, next) => {
   });
 };
 
-export { verifyToken, verifyTokenAuthorization };
+const verifyTokenIsAdmin = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      res.status(StatusCodes.UNAUTHORIZED).json({
+        msg: 'Only Admin can access to this route!!!',
+      });
+    }
+  });
+};
+
+export { verifyToken, verifyTokenAuthorization, verifyTokenIsAdmin };
