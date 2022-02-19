@@ -6,7 +6,7 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import userRouter from './routes/user.js';
 import productRouter from './routes/product.js';
-
+import cartRouter from './routes/cart.js';
 dotenv.config();
 const app = express();
 
@@ -16,6 +16,7 @@ app.use(express.json());
 // routes
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/carts', cartRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello world!');
