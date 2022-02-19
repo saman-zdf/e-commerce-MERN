@@ -18,6 +18,7 @@ const register = async (req, res) => {
     username: username,
     email: email,
     password: password,
+    isAdmin: req.body.isAdmin && req.body.isAdmin,
   });
   const token = user.createJWT();
 

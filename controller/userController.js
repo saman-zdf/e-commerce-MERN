@@ -29,4 +29,12 @@ const deleteUser = async (req, res) => {
     .status(StatusCodes.OK)
     .json({ msg: 'User has been deleted successfully!!' });
 };
-export { updateUser, deleteUser };
+
+// GET USER
+const getUser = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findOne({ id });
+  const { password, ...rest } = user;
+  res.status(StatusCodes.OK).json({ user: rest._doc });
+};
+export { updateUser, deleteUser, getUser };
