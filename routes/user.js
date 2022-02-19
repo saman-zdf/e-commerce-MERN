@@ -5,6 +5,7 @@ import {
   updateUser,
   getUser,
   getAllUsers,
+  getUserStats,
 } from '../controller/userController.js';
 import {
   verifyTokenAuthorization,
@@ -18,5 +19,6 @@ router.route('/:id').put(verifyTokenAuthorization, updateUser);
 router.route('/:id').delete(verifyTokenIsAdmin, deleteUser);
 router.route('/find/:id').get(verifyTokenIsAdmin, getUser);
 router.route('/').get(verifyTokenIsAdmin, getAllUsers);
+router.route('/stats').get(verifyTokenIsAdmin, getUserStats);
 
 export default router;
