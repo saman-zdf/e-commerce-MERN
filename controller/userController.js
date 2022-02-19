@@ -37,4 +37,14 @@ const getUser = async (req, res) => {
   const { password, ...rest } = user;
   res.status(StatusCodes.OK).json({ user: rest._doc });
 };
-export { updateUser, deleteUser, getUser };
+
+// GET ALL USERS
+const getAllUsers = async (req, res) => {
+  const query = req.query.new;
+  const users = query
+    ? await User.find({}).sort({ _id: -1 }).limit(5)
+    : await User.find({});
+
+  res.status(StatusCodes.OK).json({ users });
+};
+export { updateUser, deleteUser, getUser, getAllUsers };
