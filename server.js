@@ -7,6 +7,8 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 import userRouter from './routes/user.js';
 import productRouter from './routes/product.js';
 import cartRouter from './routes/cart.js';
+import orderRouter from './routes/order.js';
+
 dotenv.config();
 const app = express();
 
@@ -17,6 +19,7 @@ app.use(express.json());
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/carts', cartRouter);
+app.use('/api/v1/orders', orderRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello world!');
