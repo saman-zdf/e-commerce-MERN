@@ -1,7 +1,6 @@
 import User from '../model/User.js';
 import CryptoJS from 'crypto-js';
 import { StatusCodes } from 'http-status-codes';
-import { BadRequestError } from '../errors/index.js';
 
 const updateUser = async (req, res) => {
   const { id } = req.params;

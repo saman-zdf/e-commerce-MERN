@@ -19,7 +19,7 @@ const ProductSchema = new Schema(
       type: String,
       required: [true, 'Please provide a image.'],
     },
-    category: {
+    categories: {
       type: Array,
       required: [true, 'Please provide a category.'],
     },
