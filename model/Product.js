@@ -24,15 +24,16 @@ const ProductSchema = new Schema(
       required: [true, 'Please provide a category.'],
     },
     size: {
-      type: String,
+      type: Array,
     },
     color: {
-      type: String,
+      type: Array,
     },
     price: {
       type: Number,
       required: [true, 'Please provide a price.'],
     },
+    inStock: { type: Boolean, default: true },
   },
   { timestamps: true }
 );
