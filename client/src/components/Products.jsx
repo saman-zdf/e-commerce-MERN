@@ -1,7 +1,7 @@
 import { Container } from '../style/Products';
 import { Product } from '../components';
 import { popularProducts } from '../data';
-const Products = () => {
+const Products = ({ cat, filters, sort }) => {
   return (
     <Container>
       {popularProducts.map((item) => {

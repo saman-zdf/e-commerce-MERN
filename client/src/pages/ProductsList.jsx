@@ -14,8 +14,21 @@ import {
   Select,
   Option,
 } from '../style/ProductsList';
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
-const ProductsList = () => {
+const ProductsList = ({ size, color, price }) => {
+  const location = useLocation();
+  const cat = location.pathname.split('/')[2];
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState('newest');
+
+  const handleFilters = (e) => {
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <Container>
       <Navbar />
@@ -24,10 +37,8 @@ const ProductsList = () => {
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select>
-            <Option disabled selected>
-              Color
-            </Option>
+          <Select name='color' onChange={handleFilters}>
+            <Option>{color}</Option>
             <Option>White</Option>
             <Option>Black</Option>
             <Option>Red</Option>
@@ -35,10 +46,8 @@ const ProductsList = () => {
             <Option>Yellow</Option>
             <Option>Green</Option>
           </Select>
-          <Select>
-            <Option disabled selected>
-              Size
-            </Option>
+          <Select name='size' onChange={handleFilters}>
+            <Option>{size}</Option>
             <Option>XS</Option>
             <Option>S</Option>
             <Option>M</Option>
@@ -48,20 +57,24 @@ const ProductsList = () => {
         </Filter>
         <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select>
-            <Option disabled selected>
-              Newest
-            </Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value='newest'>{price}</Option>
+            <Option value='asc'>Price (asc)</Option>
+            <Option value='desc'>Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products cat={cat} filters={filters} sort={sort} />
       <NewsLetter />
       <Footer />
     </Container>
   );
+};
+
+ProductsList.defaultProps = {
+  color: 'Color',
+  size: 'Size',
+  price: 'Newest',
 };
 
 export default ProductsList;
