@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 
-const stripe = require('stripe')(process.env.STRIPE_KEY);
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_KEY);
 
 const stripePay = async (req, res) => {
   stripe.charges.create(
