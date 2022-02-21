@@ -1,6 +1,7 @@
 import { Container } from '../style/Categories';
 import { categories } from '../data';
 import { CategoryItem } from '.';
+
 const Categories = () => {
   return (
     <Container>

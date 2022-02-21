@@ -5,10 +5,10 @@ const CategoryItem = ({ item }) => {
   const { img, title, cat } = item;
   return (
     <Container>
-      <Link to={`/products/${cat}`}>
-        <Image src={img} />
+      <Link to={`/products/${item.cat}`}>
+        <Image src={item.img} />
         <Info>
-          <Title>{title}</Title>
+          <Title>{item.title}</Title>
           <Button>SHOP NOW</Button>
         </Info>
       </Link>
