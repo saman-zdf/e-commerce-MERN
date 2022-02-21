@@ -1,14 +1,17 @@
+import { Link } from 'react-router-dom';
 import { Container, Image, Info, Title, Button } from '../style/CategoryItem';
 
 const CategoryItem = ({ item }) => {
-  const { img, title } = item;
+  const { img, title, cat } = item;
   return (
     <Container>
-      <Image src={img} />
-      <Info>
-        <Title>{title}</Title>
-        <Button>SHOP NOW</Button>
-      </Info>
+      <Link to={`/products/${cat}`}>
+        <Image src={img} />
+        <Info>
+          <Title>{title}</Title>
+          <Button>SHOP NOW</Button>
+        </Info>
+      </Link>
     </Container>
   );
 };
