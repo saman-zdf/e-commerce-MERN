@@ -33,11 +33,31 @@ const Products = ({ cat, filters, sort }) => {
       );
   }, [products, cat, filters]);
 
+  useEffect(() => {
+    if (sort === 'newest') {
+      setFilteredProducts((prev) => {
+        return [...prev].sort((a, b) => a.createdAt - b.createdAt);
+      });
+    } else if (sort === 'asc') {
+      setFilteredProducts((prev) => {
+        return [...prev].sort((a, b) => a.price - b.price);
+      });
+    } else {
+      setFilteredProducts((prev) => {
+        return [...prev].sort((a, b) => b.price - a.price);
+      });
+    }
+  }, [sort]);
+
   return (
     <Container>
-      {filteredProducts.map((item) => {
-        return <Product item={item} key={item.id} />;
-      })}
+      {cat
+        ? filteredProducts.map((item, idx) => {
+            return <Product item={item} key={idx} />;
+          })
+        : products.slice(0, 8).map((item, idx) => {
+            return <Product item={item} key={idx} />;
+          })}
     </Container>
   );
 };
