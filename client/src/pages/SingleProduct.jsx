@@ -22,12 +22,14 @@ import {
 } from '../style/SingleProduct';
 import { Announcement, Navbar, NewsLetter, Footer } from '../components';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { publicRequest } from '../apiRequest';
 
 const SingleProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState('');
+  const [size, setSize] = useState('');
   useEffect(() => {
     const getProduct = async (id) => {
       const res = await publicRequest.get(`/products/find/${id}`);
@@ -35,6 +37,15 @@ const SingleProduct = () => {
     };
     getProduct(id);
   }, [id]);
+  console.log(size, color);
+  const handleQuantity = (type) => {
+    if (type === 'dec') {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+  // const handleClick = () => {};
 
   return (
     <Container>
@@ -51,15 +62,19 @@ const SingleProduct = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              {product.color.map((clr) => (
-                <FilterColor color={clr} key={clr} />
+              {product.color?.map((clr) => (
+                <FilterColor
+                  color={clr}
+                  key={clr}
+                  onClick={() => setColor(clr)}
+                />
               ))}
               <FilterColor color='red' />
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                {product.size.map((s) => (
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
               </FilterSize>
@@ -67,9 +82,15 @@ const SingleProduct = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove style={{ cursor: 'pointer' }} />
-              <Amount>1</Amount>
-              <Add style={{ cursor: 'pointer' }} />
+              <Remove
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleQuantity('dec')}
+              />
+              <Amount>{quantity}</Amount>
+              <Add
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleQuantity('inc')}
+              />
             </AmountContainer>
             <Button>Add To Cart</Button>
           </AddContainer>
